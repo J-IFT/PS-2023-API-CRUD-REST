@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Morceau{% endblock %}
+
+{% block body %}
+    <h1>Edit Morceau</h1>
+
+    {{ include('morceau/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_morceau_index') }}">back to list</a>
+
+    {{ include('morceau/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Morceau{% endblock %}
+
+{% block body %}
+    <h1>Create new Morceau</h1>
+
+    {{ include('morceau/_form.html.twig') }}
+
+    <a href="{{ path('app_morceau_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Morceau{% endblock %}
+
+{% block body %}
+    <h1>Morceau</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ morceau.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ morceau.titre }}</td>
+            </tr>
+            <tr>
+                <th>Duree</th>
+                <td>{{ morceau.duree }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_morceau_index') }}">back to list</a>
+
+    <a href="{{ path('app_morceau_edit', {'id': morceau.id}) }}">edit</a>
+
+    {{ include('morceau/_delete_form.html.twig') }}
+{% endblock %}
