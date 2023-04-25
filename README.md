@@ -22,11 +22,18 @@ Comporter des filtres, subresources, tris et validations
 
 ### 📌 Fonctionnement du projet :
 
+Commandes ->
+
 Pour le créer : composer create-project symfony/website-skeleton TPApiCrudRest
+
 Pour ajouter quelques dépendances : composer install ET composer require api
+
 Pour le lancer : symfony server:start
+
 Pour générer les classes de mes entités : php bin/console doctrine:mapping:import "App\Entity" annotation --path=src/Entity
+
 Pour le crud : php bin/console make:crud
+
 
 Choix du CRUD ->
 
