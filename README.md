@@ -12,7 +12,7 @@ Groupe : Juliette, Jeremy, Flavien, Loris & Brice
 
 Sur la base musique (script MySQL dans le zip du sujet), créer en Symfony, avec API Platform, une API REST et son application web de tests devant, comme vu en cours :
 
-Permellre un CRUD sur 3 ou 4 tables de la base (avec au moins une lable d'association)
+Permettre un CRUD sur 3 ou 4 tables de la base (avec au moins une table d'association)
 
 Supporter les formats d'échanges JSON et XML
 
