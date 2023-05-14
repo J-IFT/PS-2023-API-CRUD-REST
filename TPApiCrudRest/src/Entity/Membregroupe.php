@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
+
 
 /**
  * Membregroupe
@@ -10,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="membregroupe", uniqueConstraints={@ORM\UniqueConstraint(name="membregroupe_uq", columns={"IDGROUPE", "IDARTISTE"})}, indexes={@ORM\Index(name="membregroupe_artiste_fk", columns={"IDARTISTE"}), @ORM\Index(name="IDX_38A76F3CA637BDC1", columns={"IDGROUPE"})})
  * @ORM\Entity
  */
+#[ApiResource]
 class Membregroupe
 {
     /**

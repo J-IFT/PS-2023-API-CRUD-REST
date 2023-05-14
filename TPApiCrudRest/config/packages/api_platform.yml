@@ -1,0 +1,4 @@
+api_platform:
+    formats:
+        json: ['application/json']
+        xml: ['application/xml', 'text/xml']

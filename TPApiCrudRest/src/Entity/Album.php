@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
 
 /**
  * Album
@@ -10,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="album", indexes={@ORM\Index(name="album_artiste_fk", columns={"IDARTISTE"}), @ORM\Index(name="album_groupe_fk", columns={"IDGROUPE"})})
  * @ORM\Entity
  */
+#[ApiResource]
 class Album
 {
     /**
@@ -19,35 +21,35 @@ class Album
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    public $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="TITRE", type="string", length=100, nullable=false)
      */
-    private $titre;
+    public $titre;
 
     /**
      * @var string
      *
      * @ORM\Column(name="GENRE", type="string", length=50, nullable=false)
      */
-    private $genre;
+    public $genre;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="DATESORTIE", type="date", nullable=false)
      */
-    private $datesortie;
+    public $datesortie;
 
     /**
      * @var string
      *
      * @ORM\Column(name="PRIX", type="decimal", precision=5, scale=2, nullable=false)
      */
-    private $prix;
+    public $prix;
 
     /**
      * @var \Artiste
@@ -57,7 +59,7 @@ class Album
      *   @ORM\JoinColumn(name="IDARTISTE", referencedColumnName="ID")
      * })
      */
-    private $idartiste;
+    public $idartiste;
 
     /**
      * @var \Groupe
@@ -67,7 +69,7 @@ class Album
      *   @ORM\JoinColumn(name="IDGROUPE", referencedColumnName="ID")
      * })
      */
-    private $idgroupe;
+    public $idgroupe;
 
 
 }
