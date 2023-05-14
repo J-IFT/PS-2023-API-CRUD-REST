@@ -3,6 +3,10 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Doctrine\Orm\Filter\DateFilter;
+use ApiPlatform\Metadata\ApiFilter;
 
 /**
  * Album
@@ -10,6 +14,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="album", indexes={@ORM\Index(name="album_artiste_fk", columns={"IDARTISTE"}), @ORM\Index(name="album_groupe_fk", columns={"IDGROUPE"})})
  * @ORM\Entity
  */
+#[ApiResource(normalizationContext: ['groups' => ['bandOrArtist']], order: ['titre'])]
+#[ApiFilter(DateFilter::class, properties: ['createdAt'])]
 class Album
 {
     /**
@@ -19,35 +25,40 @@ class Album
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    #[Groups('bandOrArtist')]
+    public $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="TITRE", type="string", length=100, nullable=false)
      */
-    private $titre;
+    #[Groups(['bandOrArtist', 'content'])]
+    public $titre;
 
     /**
      * @var string
      *
      * @ORM\Column(name="GENRE", type="string", length=50, nullable=false)
      */
-    private $genre;
+    #[Groups('bandOrArtist')]
+    public $genre;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="DATESORTIE", type="date", nullable=false)
      */
-    private $datesortie;
+    #[Groups('bandOrArtist')]
+    public $datesortie;
 
     /**
      * @var string
      *
      * @ORM\Column(name="PRIX", type="decimal", precision=5, scale=2, nullable=false)
      */
-    private $prix;
+    #[Groups('bandOrArtist')]
+    public $prix;
 
     /**
      * @var \Artiste
@@ -57,7 +68,8 @@ class Album
      *   @ORM\JoinColumn(name="IDARTISTE", referencedColumnName="ID")
      * })
      */
-    private $idartiste;
+    #[Groups('bandOrArtist')]
+    public $idartiste;
 
     /**
      * @var \Groupe
@@ -67,7 +79,8 @@ class Album
      *   @ORM\JoinColumn(name="IDGROUPE", referencedColumnName="ID")
      * })
      */
-    private $idgroupe;
+    #[Groups('bandOrArtist')]
+    public $idgroupe;
 
 
 }

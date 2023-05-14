@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
  * Morceau
@@ -10,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="morceau")
  * @ORM\Entity
  */
+#[ApiResource]
 class Morceau
 {
     /**
@@ -19,21 +23,22 @@ class Morceau
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    public $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="TITRE", type="string", length=100, nullable=false)
      */
-    private $titre;
+    #[Groups('content')]
+    public $titre;
 
     /**
      * @var string
      *
      * @ORM\Column(name="DUREE", type="string", length=5, nullable=false, options={"fixed"=true})
      */
-    private $duree;
+    public $duree;
 
 
 }

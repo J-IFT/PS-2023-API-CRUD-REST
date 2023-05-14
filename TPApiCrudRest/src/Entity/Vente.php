@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
+
 
 /**
  * Vente
@@ -10,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="vente", uniqueConstraints={@ORM\UniqueConstraint(name="vente_unique", columns={"IDALBUM", "MOIS", "ANNEE"})}, indexes={@ORM\Index(name="IDX_888A2A4CD0D8FC40", columns={"IDALBUM"})})
  * @ORM\Entity
  */
+#[ApiResource]
 class Vente
 {
     /**
@@ -19,28 +22,28 @@ class Vente
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    public $id;
 
     /**
      * @var int
      *
      * @ORM\Column(name="MOIS", type="integer", nullable=false)
      */
-    private $mois;
+    public $mois;
 
     /**
      * @var int
      *
      * @ORM\Column(name="ANNEE", type="integer", nullable=false)
      */
-    private $annee;
+    public $annee;
 
     /**
      * @var int
      *
      * @ORM\Column(name="NBVENTES", type="integer", nullable=false)
      */
-    private $nbventes;
+    public $nbventes;
 
     /**
      * @var \Album
@@ -50,7 +53,7 @@ class Vente
      *   @ORM\JoinColumn(name="IDALBUM", referencedColumnName="ID")
      * })
      */
-    private $idalbum;
+    public $idalbum;
 
 
 }

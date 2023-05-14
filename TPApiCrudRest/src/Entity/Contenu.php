@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
  * Contenu
@@ -10,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="contenu", uniqueConstraints={@ORM\UniqueConstraint(name="contenu_uq", columns={"IDMORCEAU", "IDALBUM"})}, indexes={@ORM\Index(name="contenu_album_fk", columns={"IDALBUM"}), @ORM\Index(name="IDX_89C2003FAD7D3E89", columns={"IDMORCEAU"})})
  * @ORM\Entity
  */
+#[ApiResource(normalizationContext: ['groups' => ['content']])]
 class Contenu
 {
     /**
@@ -19,7 +23,8 @@ class Contenu
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    #[Groups('content')]
+    public $id;
 
     /**
      * @var \Album
@@ -29,7 +34,8 @@ class Contenu
      *   @ORM\JoinColumn(name="IDALBUM", referencedColumnName="ID")
      * })
      */
-    private $idalbum;
+    #[Groups('content')]
+    public $idalbum;
 
     /**
      * @var \Morceau
@@ -39,7 +45,8 @@ class Contenu
      *   @ORM\JoinColumn(name="IDMORCEAU", referencedColumnName="ID")
      * })
      */
-    private $idmorceau;
+    #[Groups('content')]
+    public $idmorceau;
 
 
 }

@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
  * Groupe
@@ -10,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="groupe")
  * @ORM\Entity
  */
+#[ApiResource]
 class Groupe
 {
     /**
@@ -19,14 +23,15 @@ class Groupe
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    public $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="NOM", type="string", length=100, nullable=false)
      */
-    private $nom;
+    #[Groups('bandOrArtist')]
+    public $nom;
 
 
 }
