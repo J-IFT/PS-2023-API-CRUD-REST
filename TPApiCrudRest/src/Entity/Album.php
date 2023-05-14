@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Doctrine\Orm\Filter\DateFilter;
+use ApiPlatform\Metadata\ApiFilter;
 
 /**
  * Album
@@ -12,8 +14,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ORM\Table(name="album", indexes={@ORM\Index(name="album_artiste_fk", columns={"IDARTISTE"}), @ORM\Index(name="album_groupe_fk", columns={"IDGROUPE"})})
  * @ORM\Entity
  */
-#[ApiResource(normalizationContext: ['groups' => ['bandOrArtist']])]
-// #[ApiResource]
+#[ApiResource(normalizationContext: ['groups' => ['bandOrArtist']], order: ['titre'])]
+#[ApiFilter(DateFilter::class, properties: ['createdAt'])]
 class Album
 {
     /**
