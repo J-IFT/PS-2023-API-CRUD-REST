@@ -22,7 +22,7 @@ class Membregroupe
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    public $id;
 
     /**
      * @var \Groupe
@@ -32,7 +32,7 @@ class Membregroupe
      *   @ORM\JoinColumn(name="IDGROUPE", referencedColumnName="ID")
      * })
      */
-    private $idgroupe;
+    public $idgroupe;
 
     /**
      * @var \Artiste
@@ -42,7 +42,7 @@ class Membregroupe
      *   @ORM\JoinColumn(name="IDARTISTE", referencedColumnName="ID")
      * })
      */
-    private $idartiste;
+    public $idartiste;
 
 
 }

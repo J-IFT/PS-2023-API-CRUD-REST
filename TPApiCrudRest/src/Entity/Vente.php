@@ -22,28 +22,28 @@ class Vente
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    public $id;
 
     /**
      * @var int
      *
      * @ORM\Column(name="MOIS", type="integer", nullable=false)
      */
-    private $mois;
+    public $mois;
 
     /**
      * @var int
      *
      * @ORM\Column(name="ANNEE", type="integer", nullable=false)
      */
-    private $annee;
+    public $annee;
 
     /**
      * @var int
      *
      * @ORM\Column(name="NBVENTES", type="integer", nullable=false)
      */
-    private $nbventes;
+    public $nbventes;
 
     /**
      * @var \Album
@@ -53,7 +53,7 @@ class Vente
      *   @ORM\JoinColumn(name="IDALBUM", referencedColumnName="ID")
      * })
      */
-    private $idalbum;
+    public $idalbum;
 
 
 }

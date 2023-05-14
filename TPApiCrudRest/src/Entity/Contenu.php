@@ -22,7 +22,7 @@ class Contenu
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    public $id;
 
     /**
      * @var \Album
@@ -32,7 +32,7 @@ class Contenu
      *   @ORM\JoinColumn(name="IDALBUM", referencedColumnName="ID")
      * })
      */
-    private $idalbum;
+    public $idalbum;
 
     /**
      * @var \Morceau
@@ -42,7 +42,7 @@ class Contenu
      *   @ORM\JoinColumn(name="IDMORCEAU", referencedColumnName="ID")
      * })
      */
-    private $idmorceau;
+    public $idmorceau;
 
 
 }
