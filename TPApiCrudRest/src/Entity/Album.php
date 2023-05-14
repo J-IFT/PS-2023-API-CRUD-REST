@@ -31,7 +31,7 @@ class Album
      *
      * @ORM\Column(name="TITRE", type="string", length=100, nullable=false)
      */
-    #[Groups('bandOrArtist')]
+    #[Groups(['bandOrArtist', 'content'])]
     public $titre;
 
     /**

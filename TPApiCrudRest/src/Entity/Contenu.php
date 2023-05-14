@@ -13,7 +13,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ORM\Table(name="contenu", uniqueConstraints={@ORM\UniqueConstraint(name="contenu_uq", columns={"IDMORCEAU", "IDALBUM"})}, indexes={@ORM\Index(name="contenu_album_fk", columns={"IDALBUM"}), @ORM\Index(name="IDX_89C2003FAD7D3E89", columns={"IDMORCEAU"})})
  * @ORM\Entity
  */
-#[ApiResource]
+#[ApiResource(normalizationContext: ['groups' => ['content']])]
 class Contenu
 {
     /**
@@ -23,6 +23,7 @@ class Contenu
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
+    #[Groups('content')]
     public $id;
 
     /**
@@ -33,6 +34,7 @@ class Contenu
      *   @ORM\JoinColumn(name="IDALBUM", referencedColumnName="ID")
      * })
      */
+    #[Groups('content')]
     public $idalbum;
 
     /**
@@ -43,6 +45,7 @@ class Contenu
      *   @ORM\JoinColumn(name="IDMORCEAU", referencedColumnName="ID")
      * })
      */
+    #[Groups('content')]
     public $idmorceau;
 
 

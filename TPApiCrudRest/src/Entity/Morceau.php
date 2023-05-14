@@ -30,6 +30,7 @@ class Morceau
      *
      * @ORM\Column(name="TITRE", type="string", length=100, nullable=false)
      */
+    #[Groups('content')]
     public $titre;
 
     /**
