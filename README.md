@@ -6,7 +6,7 @@
 
 Avril 2023
 
-Groupe : Juliette, Jeremy, Flavien, Loris & Brice
+Groupe : Juliette, Jeremy, Flavien, Loris
 
 ### 📌 Consignes du projet :
 
